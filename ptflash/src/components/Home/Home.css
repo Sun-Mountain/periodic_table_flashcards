@@ -1,0 +1,37 @@
+#atom-name {
+    font-size: 25px;
+    margin: 15px auto;
+}
+
+#atom-num {
+    font-size: 45px;
+    font-weight: 600;
+    margin: 10px auto;
+}
+
+#atom-sym {
+    font-size: 100px;
+    margin: 10px auto;
+}
+
+.card {
+    border: 5px solid #444;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+.flashcard {
+    margin: 0 auto;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 25px auto;
+    width: 310px;
+}

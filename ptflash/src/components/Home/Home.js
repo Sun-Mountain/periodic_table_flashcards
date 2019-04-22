@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Home.css';
 import axios from 'axios';
 
 class Home extends Component {
@@ -21,10 +22,11 @@ class Home extends Component {
         // fetch periodic table api in array
         axios.get(Url)
             .then(res => {
-                let PTFlash = res.data
-
-                // console log pt
-                console.log(PTFlash)
+                let updateList = res.data
+                this.setState({
+                    listOfElements: updateList
+                })
+                // console.log(this.state)
             })
 
             // console log error
@@ -33,23 +35,33 @@ class Home extends Component {
             })
     }
 
+
+
     render() {
-        let pleaseWork = this.state.listOfElements.map(pt => {
+        const periodicTable = this.state.listOfElements
+
+        console.log(periodicTable)
+
+        // function to pull first object in periodicTable
+
+        let currentElement = periodicTable.map(element => {
             return(
-                <li className="pt">
-                    {pt.symbol}: {pt.name}
-                </li>
+                <div className="card">
+                    <div id="atom-num">{element.atomicNumber}</div>
+                    <div id="atom-sym">{element.symbol}</div>
+                    <div id="atom-name">{element.name}</div>
+                </div>
             )
         })
-        return(
-            <div>
-                <div className="card">
-                    
-                </div>
 
-                {/* <ul className="pt">
-                    {pleaseWork}
-                </ul> */}
+        return(
+            <div className="flashcard">
+                {currentElement}
+
+                <div className="links">
+                    <div>Previous</div>
+                    <div>Next</div>
+                </div>
             </div>
         )
     }
