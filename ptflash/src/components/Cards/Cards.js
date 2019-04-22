@@ -3,8 +3,6 @@ import './Cards.css';
 
 class Cards extends Component {
 
-    
-
     render() {
         return(
             <div className="flashcard">

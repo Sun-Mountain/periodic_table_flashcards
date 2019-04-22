@@ -8,21 +8,17 @@ class Home extends Component {
         super()
 
         this.state = {
-            listOfElements: [],
-            atomicNumber: '',
-            symbol: '',
-            name: ''
+            listOfElements: []
         }
 
-        this.getPeriodicTable = this.getPeriodicTable.bind(this)
+        this.getPT = this.getPT.bind(this)
     }
 
-    componentDidMount() {
-        this.getPeriodicTable(this.state)
-
+    componentWillMount() {
+        this.getPT(this.state)
     }
 
-    getPeriodicTable() {
+    getPT() {
         const Url = 'https://neelpatel05.pythonanywhere.com/'
 
         // fetch periodic table api in array
@@ -32,6 +28,7 @@ class Home extends Component {
                 this.setState({
                     listOfElements: updateList
                 })
+                console.log(this.state)
             })
 
             // console log error
@@ -39,6 +36,8 @@ class Home extends Component {
                 console.log('ERROR')
             })
     }
+
+
 
     render() {
 
