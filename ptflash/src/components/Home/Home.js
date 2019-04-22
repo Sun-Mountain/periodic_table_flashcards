@@ -44,19 +44,19 @@ class Home extends Component {
 
         // function to pull first object in periodicTable
 
-        let currentElement = periodicTable.map(element => {
-            return(
-                <div className="card">
-                    <div id="atom-num">{element.atomicNumber}</div>
-                    <div id="atom-sym">{element.symbol}</div>
-                    <div id="atom-name">{element.name}</div>
-                </div>
-            )
+        let currentElement = periodicTable.filter(() => {
+            
         })
+
+        console.log(currentElement)
 
         return(
             <div className="flashcard">
-                {currentElement}
+                <div className="card">
+                    <div id="atom-num">{currentElement.atomicNumber}</div>
+                    <div id="atom-sym">{currentElement.symbol}</div>
+                    <div id="atom-name">{currentElement.name}</div>
+                </div>
 
                 <div className="links">
                     <div>Previous</div>
