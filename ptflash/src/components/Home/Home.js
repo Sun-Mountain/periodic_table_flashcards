@@ -8,15 +8,21 @@ class Home extends Component {
         super()
 
         this.state = {
-            listOfElements: []
+            listOfElements: [],
+            atomicNumber: '',
+            symbol: '',
+            name: ''
         }
+
+        this.getPeriodicTable = this.getPeriodicTable.bind(this)
     }
 
-    componentWillMount() {
-        this.getPT()
+    componentDidMount() {
+        this.getPeriodicTable(this.state)
+
     }
 
-    getPT() {
+    getPeriodicTable() {
         const Url = 'https://neelpatel05.pythonanywhere.com/'
 
         // fetch periodic table api in array
@@ -26,7 +32,6 @@ class Home extends Component {
                 this.setState({
                     listOfElements: updateList
                 })
-                // console.log(this.state)
             })
 
             // console log error
@@ -35,27 +40,14 @@ class Home extends Component {
             })
     }
 
-
-
     render() {
-        const periodicTable = this.state.listOfElements
-
-        console.log(periodicTable)
-
-        // function to pull first object in periodicTable
-
-        let currentElement = periodicTable.filter(() => {
-            
-        })
-
-        console.log(currentElement)
 
         return(
             <div className="flashcard">
                 <div className="card">
-                    <div id="atom-num">{currentElement.atomicNumber}</div>
-                    <div id="atom-sym">{currentElement.symbol}</div>
-                    <div id="atom-name">{currentElement.name}</div>
+                    <div id="atom-num">{this.state.atomicNumber}</div>
+                    <div id="atom-sym">{this.state.symbol}</div>
+                    <div id="atom-name">{this.state.name}</div>
                 </div>
 
                 <div className="links">
