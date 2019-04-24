@@ -8,9 +8,9 @@ class Home extends Component {
         super()
 
         this.state = {
-            currentAtomicNumber: '',
-            currentSymbol: '',
-            currentName: ''
+            atomicNumber: '',
+            symbol: '',
+            name: ''
         }
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
@@ -35,9 +35,9 @@ class Home extends Component {
                 console.log(currentElement)
 
                 this.setState({
-                    currentAtomicNumber: currentElement.atomicNumber,
-                    currentSymbol: currentElement.symbol,
-                    currentName: currentElement.name
+                    atomicNumber: currentElement.atomicNumber,
+                    symbol: currentElement.symbol,
+                    name: currentElement.name
                 })
 
                 console.log(this.state)
@@ -53,6 +53,12 @@ class Home extends Component {
 
         return(
             <div className="flashcard">
+
+                <div className="card">
+                    <div id="atom-num">{this.state.atomicNumber}</div>
+                    <div id="atom-sym">{this.state.symbol}</div>
+                    <div id="atom-name">{this.state.name}</div>
+                </div>
 
                 <div className="links">
                     <div>Previous</div>
