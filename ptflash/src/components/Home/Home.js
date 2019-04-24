@@ -8,7 +8,9 @@ class Home extends Component {
         super()
 
         this.state = {
-            listOfElements: [],
+            currentAtomicNumber: '',
+            currentSymbol: '',
+            currentName: ''
         }
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
@@ -16,6 +18,8 @@ class Home extends Component {
 
     componentDidMount() {
         this.getPeriodicTable(this.state)
+
+        console.log(this.state)
     }
 
     getPeriodicTable() {
@@ -25,10 +29,18 @@ class Home extends Component {
         axios.get(Url)
             .then(res => {
                 let updateList = res.data
+                
+                let currentElement = updateList[0]
+
+                console.log(currentElement)
+
                 this.setState({
-                    listOfElements: updateList
+                    currentAtomicNumber: currentElement.atomicNumber,
+                    currentSymbol: currentElement.symbol,
+                    currentName: currentElement.name
                 })
-                // console.log(this.state)
+
+                console.log(this.state)
             })
 
             // console log error
@@ -39,21 +51,8 @@ class Home extends Component {
 
     render() {
 
-        const periodicTable = this.state.listOfElements
-
-        // console.log(periodicTable)
-
-        var i = 0
-
-        const currentElement = periodicTable[i]
-
-        console.log(currentElement)
-
         return(
             <div className="flashcard">
-                <div className="card">
-                    {/* <div id="atom-num">{currentElement.atomicNumber}</div> */}
-                </div>
 
                 <div className="links">
                     <div>Previous</div>
