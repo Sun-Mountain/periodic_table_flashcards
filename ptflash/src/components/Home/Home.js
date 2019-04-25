@@ -17,6 +17,7 @@ class Home extends Component {
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
         this.addOne = this.addOne.bind(this)
+        this.subOne = this.subOne.bind(this)
     }
 
     componentDidMount() {
@@ -66,7 +67,24 @@ class Home extends Component {
                 currentAtomicNumber: newElement.atomicNumber,
                 currentSymbol: newElement.symbol,
                 currentName: newElement.name
+            }
+        })
+        
+        console.log(this.state)
+    }
 
+    subOne() {
+
+        this.setState(prevState => {
+            let newIndex = prevState.arrayIndex - 1
+
+            let newElement = prevState.elementArray[newIndex]
+
+            return {
+                arrayIndex: newIndex,
+                currentAtomicNumber: newElement.atomicNumber,
+                currentSymbol: newElement.symbol,
+                currentName: newElement.name
             }
         })
         
@@ -85,7 +103,7 @@ class Home extends Component {
                 </div>
 
                 <div className="buttons">
-                    <button>Previous</button>
+                    <button onClick={this.subOne}>Previous</button>
                     <button onClick={this.addOne}>Next</button>
                 </div>
             </div>
