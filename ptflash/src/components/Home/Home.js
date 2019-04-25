@@ -19,6 +19,7 @@ class Home extends Component {
         this.addOne = this.addOne.bind(this)
         this.subOne = this.subOne.bind(this)
         this.randomize = this.randomize.bind(this)
+        this.reset = this.reset.bind(this)
     }
 
     componentDidMount() {
@@ -37,7 +38,7 @@ class Home extends Component {
 
                 let currentElement = updateList[arrayIndex]
 
-                console.log(currentElement)
+                // console.log(currentElement)
 
                 this.setState({
                     elementArray: updateList,
@@ -128,16 +129,19 @@ class Home extends Component {
 
         const newStart = newElementArray[0]
 
-        console.log(newStart)
-
         this.setState({
             elementArray: newElementArray,
+            arrayIndex: 0,
             currentAtomicNumber: newStart.atomicNumber,
             currentSymbol: newStart.symbol,
             currentElement: newStart.name
         })
 
         console.log('random!')
+    }
+
+    reset() {
+        this.getPeriodicTable()
     }
 
     render() {
@@ -153,7 +157,8 @@ class Home extends Component {
 
                 <div className="buttons">
                     <button onClick={this.subOne}>Previous</button>
-                    <button onClick={this.randomize}>Randomize</button>
+                    <button onClick={this.randomize}>Random</button>
+                    <button onClick={this.reset}>Reset</button>
                     <button onClick={this.addOne}>Next</button>
                 </div>
             </div>
