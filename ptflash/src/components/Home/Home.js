@@ -42,6 +42,7 @@ class Home extends Component {
 
                 this.setState({
                     elementArray: updateList,
+                    arrayIndex: 0,
                     currentAtomicNumber: currentElement.atomicNumber,
                     currentSymbol: currentElement.symbol,
                     currentName: currentElement.name
@@ -105,7 +106,7 @@ class Home extends Component {
 
     randomize() {
         let oldElementArray = this.state.elementArray
-        console.log(oldElementArray[0])
+        // console.log(oldElementArray[0])
 
         var shuffle = function(array) {
             var currentArrayIndex = array.length
@@ -141,7 +142,8 @@ class Home extends Component {
     }
 
     reset() {
-        this.getPeriodicTable()
+        this.getPeriodicTable(this.state)
+        console.log(this.state)
     }
 
     render() {
