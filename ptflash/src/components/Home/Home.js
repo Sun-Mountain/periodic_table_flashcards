@@ -126,7 +126,16 @@ class Home extends Component {
 
         let newElementArray = shuffle(oldElementArray)
 
-        console.log(newElementArray[0])
+        const newStart = newElementArray[0]
+
+        console.log(newStart)
+
+        this.setState({
+            elementArray: newElementArray,
+            currentAtomicNumber: newStart.atomicNumber,
+            currentSymbol: newStart.symbol,
+            currentElement: newStart.name
+        })
 
         console.log('random!')
     }
