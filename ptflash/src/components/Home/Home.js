@@ -9,7 +9,7 @@ class Home extends Component {
 
         this.state = {
             elementArray: [],
-            arrayIndex: 115,
+            arrayIndex: 0,
             currentAtomicNumber: '',
             currentSymbol: '',
             currentName: ''
@@ -18,6 +18,7 @@ class Home extends Component {
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
         this.addOne = this.addOne.bind(this)
         this.subOne = this.subOne.bind(this)
+        this.randomize = this.randomize.bind(this)
     }
 
     componentDidMount() {
@@ -101,6 +102,35 @@ class Home extends Component {
         }
     }
 
+    randomize() {
+        let oldElementArray = this.state.elementArray
+        console.log(oldElementArray[0])
+
+        var shuffle = function(array) {
+            var currentArrayIndex = array.length
+            var temporaryValue, randomIndex
+
+            //while there remain elements
+            while (0 !== currentArrayIndex) {
+                // Pick a random element
+                randomIndex = Math.floor(Math.random() * currentArrayIndex)
+                currentArrayIndex -= 1
+
+                // Swap it with current element
+                temporaryValue = array[currentArrayIndex]
+                array[currentArrayIndex] = array[randomIndex]
+                array[randomIndex] = temporaryValue
+            }
+            return array
+        }
+
+        let newElementArray = shuffle(oldElementArray)
+
+        console.log(newElementArray[0])
+
+        console.log('random!')
+    }
+
     render() {
 
         return(
@@ -114,6 +144,7 @@ class Home extends Component {
 
                 <div className="buttons">
                     <button onClick={this.subOne}>Previous</button>
+                    <button onClick={this.randomize}>Randomize</button>
                     <button onClick={this.addOne}>Next</button>
                 </div>
             </div>
