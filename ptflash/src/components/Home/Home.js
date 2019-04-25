@@ -9,7 +9,7 @@ class Home extends Component {
 
         this.state = {
             elementArray: [],
-            arrayIndex: 0,
+            arrayIndex: 115,
             currentAtomicNumber: '',
             currentSymbol: '',
             currentName: ''
@@ -56,39 +56,49 @@ class Home extends Component {
     }
 
     addOne() {
+        const currentArrayIndex = this.state.arrayIndex
+        const currentElementArray = this.state.elementArray
+        const arrayLimit = currentElementArray.length - 1
 
-        this.setState(prevState => {
-            let newIndex = prevState.arrayIndex + 1
+        if (currentArrayIndex===arrayLimit) {
+            console.log('nah')
+        } else {
+            this.setState(prevState => {
+                let newIndex = prevState.arrayIndex + 1
 
-            let newElement = prevState.elementArray[newIndex]
+                let newElement = prevState.elementArray[newIndex]
 
-            return {
-                arrayIndex: newIndex,
-                currentAtomicNumber: newElement.atomicNumber,
-                currentSymbol: newElement.symbol,
-                currentName: newElement.name
-            }
-        })
-        
-        console.log(this.state)
+                return {
+                    arrayIndex: newIndex,
+                    currentAtomicNumber: newElement.atomicNumber,
+                    currentSymbol: newElement.symbol,
+                    currentName: newElement.name
+                }
+            })
+            console.log('add')
+        }
     }
 
     subOne() {
+        const currentArrayIndex = this.state.arrayIndex
 
-        this.setState(prevState => {
-            let newIndex = prevState.arrayIndex - 1
+        if(currentArrayIndex===0) {
+            console.log('nah')
+        } else {
+            this.setState(prevState => {
+                let newIndex = prevState.arrayIndex - 1
 
-            let newElement = prevState.elementArray[newIndex]
+                let newElement = prevState.elementArray[newIndex]
 
-            return {
-                arrayIndex: newIndex,
-                currentAtomicNumber: newElement.atomicNumber,
-                currentSymbol: newElement.symbol,
-                currentName: newElement.name
-            }
-        })
-        
-        console.log(this.state)
+                return {
+                    arrayIndex: newIndex,
+                    currentAtomicNumber: newElement.atomicNumber,
+                    currentSymbol: newElement.symbol,
+                    currentName: newElement.name
+                }
+            })
+            console.log('sub')
+        }
     }
 
     render() {
