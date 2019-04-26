@@ -9,10 +9,10 @@ class Cards extends Component {
 
         this.state = {
             elementArray: [],
-            arrayIndex: 0,
+            arrayIndex: 1,
             currentAtomicNumber: '',
             currentSymbol: '',
-            answer: '',
+            currentName: '',
             guess: 'Guess'
         }
 
@@ -46,7 +46,7 @@ class Cards extends Component {
                     currentName: currentElement.name
                 })
 
-                // console.log(this.state)
+                console.log(this.state)
             })
 
             // console log error
@@ -62,6 +62,23 @@ class Cards extends Component {
         const answer = event.target.elements.answer.value
 
         console.log(answer)
+        
+        if (answer !== this.state.currentName) {
+
+            this.setState({
+                guess: 'Guess Again'
+            })
+
+            console.log('nah')
+        } else {
+
+            this.setState({
+                guess: 'Correct!'
+            })
+
+            console.log('yay!')
+        }
+
     }
 
     render() {
