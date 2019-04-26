@@ -17,8 +17,6 @@ class Cards extends Component {
         }
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleChange = this.handleChange.bind(this)
     }
 
     componentDidMount() {
@@ -57,16 +55,6 @@ class Cards extends Component {
 
     }
 
-    handleChange(event) {
-
-        console.log('change')
-    }
-
-    handleSubmit(event) {
-        event.preventDefault()
-        console.log('sumbit')
-    }
-
     render() {
 
         return(
@@ -77,7 +65,7 @@ class Cards extends Component {
                     <div id="atom-sym">{this.state.currentSymbol}</div>
                     <form onSubmit={this.handleSubmit}>
                         <label>
-                            <input type="text" value={this.state.answer} onChange={this.handleChange} />
+                            <input id="answer" name="answer" type="text" value={this.state.answer} onChange={this.handleChange} />
                         </label>
                         <input type="submit" value={this.state.guess} />
                     </form>

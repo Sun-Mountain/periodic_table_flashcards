@@ -14,14 +14,14 @@ class App extends Component {
             <Link to="/" className="link">
               <h1>Flashcards</h1>
             </Link>
-            <Link to="/cards" className="link">
-              <h1>Guess</h1>
+            <Link to="/quiz" className="link">
+              <h1>Quiz</h1>
             </Link>
           </nav>
           <main>
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/cards" exact component={Cards} />
+              <Route path="/quiz" exact component={Cards} />
             </Switch>
           </main>
         </div>
