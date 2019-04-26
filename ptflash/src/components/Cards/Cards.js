@@ -59,24 +59,56 @@ class Cards extends Component {
     handleFormSubmit(event) {
         event.preventDefault()
 
-        const answer = event.target.elements.answer.value
+        const button = this.state.guess
 
-        console.log(answer)
-        
-        if (answer !== this.state.currentName) {
+        if (button === 'Correct!') {
 
-            this.setState({
-                guess: 'Guess Again'
-            })
+            const currentArrayIndex = this.state.arrayIndex
+            const currentElementArray = this.state.elementArray
+            const arrayLimit = currentElementArray.length - 1
+    
+            if (currentArrayIndex===arrayLimit) {
+                console.log('nah')
+            } else {
+                this.setState(prevState => {
+                    let newIndex = prevState.arrayIndex + 1
+    
+                    let newElement = prevState.elementArray[newIndex]
+    
+                    return {
+                        arrayIndex: newIndex,
+                        currentAtomicNumber: newElement.atomicNumber,
+                        currentSymbol: newElement.symbol,
+                        currentName: newElement.name,
+                        guess: 'Guess'
+                    }
+                })
+                console.log('add')
+            }
 
-            console.log('nah')
+            console.log('next!')
+
         } else {
+            const answer = event.target.elements.answer.value.toLowerCase()
+            const element = this.state.currentName.toLowerCase()
 
-            this.setState({
-                guess: 'Correct!'
-            })
+            console.log(answer)
+            
+            if (answer !== element) {
 
-            console.log('yay!')
+                this.setState({
+                    guess: 'Guess Again'
+                })
+
+                console.log('nah')
+            } else {
+
+                this.setState({
+                    guess: 'Correct!'
+                })
+
+                console.log('yay!')
+            }
         }
 
     }
