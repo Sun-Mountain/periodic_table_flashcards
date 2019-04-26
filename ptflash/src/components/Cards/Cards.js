@@ -63,11 +63,11 @@ class Cards extends Component {
                 <div className="card">
                     <div id="atom-num">{this.state.currentAtomicNumber}</div>
                     <div id="atom-sym">{this.state.currentSymbol}</div>
-                    <form onSubmit={this.handleSubmit}>
+                    <form>
                         <label>
-                            <input id="answer" name="answer" type="text" value={this.state.answer} onChange={this.handleChange} />
+                            <input className="guess-form" />
                         </label>
-                        <input type="submit" value={this.state.guess} />
+                        <input className="guess-button" type="submit" value={this.state.guess} />
                     </form>
                 </div>
 

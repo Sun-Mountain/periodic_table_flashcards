@@ -29,6 +29,19 @@ form {
     margin: 0 auto;
 }
 
+.guess-button {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 10px auto;
+    width: 80px;
+}
+
+.guess-form {
+    font-size: 20px;
+    padding: 5px;
+    width: 150px;
+}
+
 .links {
     display: flex;
     flex-direction: row;
