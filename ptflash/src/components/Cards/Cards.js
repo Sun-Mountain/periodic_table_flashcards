@@ -17,6 +17,7 @@ class Cards extends Component {
         }
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
+        this.handleFormSubmit = this.handleFormSubmit.bind(this)
     }
 
     componentDidMount() {
@@ -55,6 +56,14 @@ class Cards extends Component {
 
     }
 
+    handleFormSubmit(event) {
+        event.preventDefault()
+
+        const answer = event.target.elements.answer.value
+
+        console.log(answer)
+    }
+
     render() {
 
         return(
@@ -63,9 +72,9 @@ class Cards extends Component {
                 <div className="card">
                     <div id="atom-num">{this.state.currentAtomicNumber}</div>
                     <div id="atom-sym">{this.state.currentSymbol}</div>
-                    <form>
+                    <form onSubmit={(event) => this.handleFormSubmit(event)}>
                         <label>
-                            <input className="guess-form" />
+                            <input name="answer" className="guess-form" placeholder="Guess the Element" value={this.answer} />
                         </label>
                         <input className="guess-button" type="submit" value={this.state.guess} />
                     </form>
