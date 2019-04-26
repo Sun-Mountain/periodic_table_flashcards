@@ -135,15 +135,14 @@ class Home extends Component {
             arrayIndex: 0,
             currentAtomicNumber: newStart.atomicNumber,
             currentSymbol: newStart.symbol,
-            currentElement: newStart.name
+            currentName: newStart.name
         })
 
         console.log('random!')
     }
 
     reset() {
-        this.getPeriodicTable(this.state)
-        console.log(this.state)
+        this.getPeriodicTable()
     }
 
     render() {

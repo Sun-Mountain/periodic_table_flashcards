@@ -1,8 +1,3 @@
-#atom-name {
-    font-size: 25px;
-    margin: 15px auto;
-}
-
 #atom-num {
     font-size: 45px;
     font-weight: 600;
@@ -25,6 +20,12 @@
 }
 
 .flashcard {
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
 }
 
