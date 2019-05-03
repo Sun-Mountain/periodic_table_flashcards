@@ -3,10 +3,10 @@ import { Route, Link, Switch } from 'react-router-dom';
 import './Quiz.css';
 import axios from 'axios';
 
-class Cards extends Component {
+class Quiz extends Component {
 
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
 
         this.state = {
             elementArray: [],
@@ -225,11 +225,11 @@ class Cards extends Component {
         return(
             <div>
                 <nav id="nav-quiz">
-                    <Link to="/quiz/symbol" className="nav-quiz-link">
-                        <h2>Element Symbol</h2>
-                    </Link>
                     <Link to="/quiz/name" className="nav-quiz-link">
-                        <h2>Element Name</h2>
+                        <h3>Element Name</h3>
+                    </Link>
+                    <Link to="/quiz/symbol" className="nav-quiz-link">
+                        <h3>Element Symbol</h3>
                     </Link>
                 </nav>
                 <div className="flashcard">
@@ -258,4 +258,4 @@ class Cards extends Component {
     }
 }
 
-export default Cards;
+export default Quiz;

@@ -40,6 +40,10 @@ form {
     width: 175px;
 }
 
+h3 {
+    font-size: 22px;
+}
+
 .links {
     display: flex;
     flex-direction: row;
@@ -49,7 +53,16 @@ form {
 }
 
 #nav-quiz {
-    
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 400px;
+}
+
+.nav-quiz-link {
+    color: #444;
+    margin: 0 0 15px 0;
+    text-decoration: none;
 }
 
 /* Center Placeholder Text */
