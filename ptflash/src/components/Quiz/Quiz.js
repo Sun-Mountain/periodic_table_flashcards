@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './Cards.css';
+import { Route, Link, Switch } from 'react-router-dom';
+import './Quiz.css';
 import axios from 'axios';
 
 class Cards extends Component {
@@ -222,26 +223,36 @@ class Cards extends Component {
     render() {
 
         return(
-            <div className="flashcard">
+            <div>
+                <nav id="nav-quiz">
+                    <Link to="/quiz/symbol" className="nav-quiz-link">
+                        <h2>Element Symbol</h2>
+                    </Link>
+                    <Link to="/quiz/name" className="nav-quiz-link">
+                        <h2>Element Name</h2>
+                    </Link>
+                </nav>
+                <div className="flashcard">
 
-                <div className="card">
-                    <div id="atom-num">{this.state.currentAtomicNumber}</div>
-                    <div id="atom-sym">{this.state.currentSymbol}</div>
-                    <form id="answer" onSubmit={(event) => this.handleFormSubmit(event)}>
-                        <label>
-                            <input name="answer" className="guess-form" placeholder="Guess the Element" value={this.answer} />
-                        </label>
-                        <input className="button guess-button" type="submit" value={this.state.guess} />
-                    </form>
+                    <div className="card">
+                        <div id="atom-num">{this.state.currentAtomicNumber}</div>
+                        <div id="atom-sym">{this.state.currentSymbol}</div>
+                        <form id="answer" onSubmit={(event) => this.handleFormSubmit(event)}>
+                            <label>
+                                <input name="answer" className="guess-form" placeholder="Guess the Element" value={this.answer} />
+                            </label>
+                            <input className="button guess-button" type="submit" value={this.state.guess} />
+                        </form>
+                    </div>
+
+                    <div className="buttons">
+                        <button className="button" onClick={this.subOne}>Previous</button>
+                        <button className="button" onClick={this.randomize}>Random</button>
+                        <button className="button" onClick={this.reset}>Reset</button>
+                        <button className="button" onClick={this.addOne}>Skip</button>
+                    </div>
+
                 </div>
-
-                <div className="buttons">
-                    <button className="button" onClick={this.subOne}>Previous</button>
-                    <button className="button" onClick={this.randomize}>Random</button>
-                    <button className="button" onClick={this.reset}>Reset</button>
-                    <button className="button" onClick={this.addOne}>Skip</button>
-                </div>
-
             </div>
         )
     }

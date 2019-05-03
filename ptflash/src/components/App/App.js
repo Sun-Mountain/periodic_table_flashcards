@@ -4,18 +4,18 @@ import { Route, Link, Switch } from 'react-router-dom';
 
 /* Route Imports */
 import Home from '../Home/Home'
-import Cards from '../Cards/Cards'
+import Quiz from '../Quiz/Quiz'
 
 class App extends Component {
 
   render() {
     return (
         <div>
-          <nav>
-            <Link to="/" className="link">
+          <nav id="nav-main">
+            <Link to="/" className="nav-main-link">
               <h1>Flashcards</h1>
             </Link>
-            <Link to="/quiz" className="link">
+            <Link to="/quiz" className="nav-main-link">
               <h1>Quiz</h1>
             </Link>
           </nav>
@@ -23,7 +23,7 @@ class App extends Component {
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/quiz" exact render={() => (
-                <Cards />
+                <Quiz />
               )} />
             </Switch>
           </main>

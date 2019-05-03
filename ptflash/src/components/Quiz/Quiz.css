@@ -1,3 +1,4 @@
+
 #atom-num {
     font-size: 45px;
     font-weight: 600;
@@ -45,6 +46,10 @@ form {
     justify-content: space-around;
     margin: 25px auto;
     width: 310px;
+}
+
+#nav-quiz {
+    
 }
 
 /* Center Placeholder Text */

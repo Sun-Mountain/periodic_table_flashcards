@@ -4,13 +4,13 @@ body {
   margin: 0 auto;
 }
 
-.link {
+.nav-main-link {
   color: #ffffff;
   padding: 0 5vw;
   text-decoration: none;
 }
 
-.link:hover {
+.nav-main-link:hover {
   background-color: #55DDE0;
 }
 
@@ -18,7 +18,7 @@ main {
   margin: 0 auto;
 }
 
-nav {
+#nav-main {
   background-color: #444444;
   color: #ffffff;
   display: flex;
