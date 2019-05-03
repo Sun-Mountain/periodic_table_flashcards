@@ -3,10 +3,6 @@ import { Route, Link, Switch } from 'react-router-dom';
 import './Quiz.css';
 import axios from 'axios';
 
-
-/* Route Imports */
-import QuizName from '../QuizName/QuizName'
-
 class Quiz extends Component {
 
     constructor() {
@@ -256,11 +252,6 @@ class Quiz extends Component {
                         <button className="button" onClick={this.addOne}>Skip</button>
                     </div>
                 </div>
-                <main>
-                    <Switch>
-                        <Route path="/quiz/name" exact component={QuizName} />
-                    </Switch>
-                </main>
             </div>
         )
     }
