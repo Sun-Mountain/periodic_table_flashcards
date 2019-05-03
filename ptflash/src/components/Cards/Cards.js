@@ -18,6 +18,7 @@ class Cards extends Component {
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
         this.handleFormSubmit = this.handleFormSubmit.bind(this)
+        this.randomize = this.randomize.bind(this)
     }
 
     componentDidMount() {
@@ -111,6 +112,44 @@ class Cards extends Component {
 
     }
 
+
+    randomize() {
+        let oldElementArray = this.state.elementArray
+        // console.log(oldElementArray[0])
+
+        var shuffle = function(array) {
+            var currentArrayIndex = array.length
+            var temporaryValue, randomIndex
+
+            //while there remain elements
+            while (0 !== currentArrayIndex) {
+                // Pick a random element
+                randomIndex = Math.floor(Math.random() * currentArrayIndex)
+                currentArrayIndex -= 1
+
+                // Swap it with current element
+                temporaryValue = array[currentArrayIndex]
+                array[currentArrayIndex] = array[randomIndex]
+                array[randomIndex] = temporaryValue
+            }
+            return array
+        }
+
+        let newElementArray = shuffle(oldElementArray)
+
+        const newStart = newElementArray[0]
+
+        this.setState({
+            elementArray: newElementArray,
+            arrayIndex: 0,
+            currentAtomicNumber: newStart.atomicNumber,
+            currentSymbol: newStart.symbol,
+            currentName: newStart.name
+        })
+
+        console.log('random!')
+    }
+
     render() {
 
         return(
@@ -125,6 +164,10 @@ class Cards extends Component {
                         </label>
                         <input className="guess-button" type="submit" value={this.state.guess} />
                     </form>
+                </div>
+
+                <div className="buttons">
+                    <button onClick={this.randomize}>Random</button>
                 </div>
 
             </div>
