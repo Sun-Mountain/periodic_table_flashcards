@@ -9,7 +9,7 @@ class Cards extends Component {
 
         this.state = {
             elementArray: [],
-            arrayIndex: 1,
+            arrayIndex: 0,
             currentAtomicNumber: '',
             currentSymbol: '',
             currentName: '',
@@ -63,28 +63,25 @@ class Cards extends Component {
 
         if (button === 'Correct!') {
 
-            const currentArrayIndex = this.state.arrayIndex
-            const currentElementArray = this.state.elementArray
-            const arrayLimit = currentElementArray.length - 1
-    
-            if (currentArrayIndex===arrayLimit) {
-                console.log('nah')
-            } else {
-                this.setState(prevState => {
-                    let newIndex = prevState.arrayIndex + 1
-    
-                    let newElement = prevState.elementArray[newIndex]
-    
-                    return {
-                        arrayIndex: newIndex,
-                        currentAtomicNumber: newElement.atomicNumber,
-                        currentSymbol: newElement.symbol,
-                        currentName: newElement.name,
-                        guess: 'Guess'
-                    }
-                })
-                console.log('add')
-            }
+            this.setState(prevState => {
+                console.log(prevState.arrayIndex)
+
+                let newIndex = prevState.arrayIndex + 1
+
+                console.log(newIndex)
+
+                let newElement = prevState.elementArray[newIndex]
+
+                console.log(newElement)
+
+                return {
+                    arrayIndex: newIndex,
+                    currentAtomicNumber: newElement.atomicNumber,
+                    currentSymbol: newElement.symbol,
+                    currentName: newElement.name,
+                    guess: 'Guess'
+                }
+            })
 
             console.log('next!')
 
@@ -107,7 +104,8 @@ class Cards extends Component {
                     guess: 'Correct!'
                 })
 
-                console.log('yay!')
+                console.log(this.state.guess)
+                console.log('yay - changed')
             }
         }
 
