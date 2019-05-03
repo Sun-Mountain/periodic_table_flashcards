@@ -3,6 +3,10 @@ import { Route, Link, Switch } from 'react-router-dom';
 import './Quiz.css';
 import axios from 'axios';
 
+
+/* Route Imports */
+import QuizName from '../QuizName/QuizName'
+
 class Quiz extends Component {
 
     constructor() {
@@ -255,7 +259,6 @@ class Quiz extends Component {
                 <main>
                     <Switch>
                         <Route path="/quiz/name" exact component={QuizName} />
-
                     </Switch>
                 </main>
             </div>
