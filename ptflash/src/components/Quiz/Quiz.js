@@ -225,10 +225,10 @@ class Quiz extends Component {
         return(
             <div>
                 <nav id="nav-quiz">
-                    <Link to="/quiz/name" className="nav-quiz-link">
+                    <Link to="/quiz" className="nav-quiz-link">
                         <h3>Element Name</h3>
                     </Link>
-                    <Link to="/quiz/symbol" className="nav-quiz-link">
+                    <Link to="/quiz" className="nav-quiz-link">
                         <h3>Element Symbol</h3>
                     </Link>
                 </nav>
