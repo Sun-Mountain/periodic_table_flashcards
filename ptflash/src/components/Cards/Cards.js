@@ -19,6 +19,7 @@ class Cards extends Component {
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
         this.handleFormSubmit = this.handleFormSubmit.bind(this)
         this.randomize = this.randomize.bind(this)
+        this.reset = this.reset.bind(this)
     }
 
     componentDidMount() {
@@ -47,7 +48,7 @@ class Cards extends Component {
                     currentName: currentElement.name
                 })
 
-                console.log(this.state)
+                // console.log(this.state)
             })
 
             // console log error
@@ -150,6 +151,10 @@ class Cards extends Component {
         console.log('random!')
     }
 
+    reset() {
+        this.getPeriodicTable()
+    }
+
     render() {
 
         return(
@@ -168,6 +173,7 @@ class Cards extends Component {
 
                 <div className="buttons">
                     <button onClick={this.randomize}>Random</button>
+                    <button onClick={this.reset}>Reset</button>
                 </div>
 
             </div>

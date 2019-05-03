@@ -7,6 +7,7 @@ import Home from '../Home/Home'
 import Cards from '../Cards/Cards'
 
 class App extends Component {
+
   render() {
     return (
         <div>
@@ -21,7 +22,9 @@ class App extends Component {
           <main>
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/quiz" exact component={Cards} />
+              <Route path="/quiz" exact render={() => (
+                <Cards {...this.props} reset={this.reset} randomize={this.randomize} />
+              )} />
             </Switch>
           </main>
         </div>
