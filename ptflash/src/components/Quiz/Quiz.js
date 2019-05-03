@@ -251,8 +251,13 @@ class Quiz extends Component {
                         <button className="button" onClick={this.reset}>Reset</button>
                         <button className="button" onClick={this.addOne}>Skip</button>
                     </div>
-
                 </div>
+                <main>
+                    <Switch>
+                        <Route path="/quiz/name" exact component={QuizName} />
+
+                    </Switch>
+                </main>
             </div>
         )
     }
