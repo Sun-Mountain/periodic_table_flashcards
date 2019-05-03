@@ -18,8 +18,11 @@ class Cards extends Component {
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
         this.handleFormSubmit = this.handleFormSubmit.bind(this)
+        this.addOne = this.addOne.bind(this)
+        this.subOne = this.subOne.bind(this)
         this.randomize = this.randomize.bind(this)
         this.reset = this.reset.bind(this)
+        this.clearPlaceholder = this.clearPlaceholder.bind(this)
     }
 
     componentDidMount() {
@@ -63,7 +66,7 @@ class Cards extends Component {
 
         const button = this.state.guess
 
-        if (button === 'Correct!') {
+        if (button === 'Correct! Next >>') {
 
             this.setState(prevState => {
                 console.log(prevState.arrayIndex)
@@ -85,13 +88,15 @@ class Cards extends Component {
                 }
             })
 
-            console.log('next!')
+            this.clearPlaceholder()
+
+            // console.log('next!')
 
         } else {
             const answer = event.target.elements.answer.value.toLowerCase()
             const element = this.state.currentName.toLowerCase()
 
-            console.log(answer)
+            // console.log(answer)
             
             if (answer !== element) {
 
@@ -99,18 +104,70 @@ class Cards extends Component {
                     guess: 'Guess Again'
                 })
 
-                console.log('nah')
+                // console.log('nah')
             } else {
 
                 this.setState({
-                    guess: 'Correct!'
+                    guess: 'Correct! Next >>'
                 })
 
                 console.log(this.state.guess)
-                console.log('yay - changed')
+                // console.log('yay - changed')
             }
         }
 
+    }
+
+    addOne() {
+        const currentArrayIndex = this.state.arrayIndex
+        const currentElementArray = this.state.elementArray
+        const arrayLimit = currentElementArray.length - 1
+
+        if (currentArrayIndex===arrayLimit) {
+            console.log('nah')
+        } else {
+            this.setState(prevState => {
+                let newIndex = prevState.arrayIndex + 1
+
+                let newElement = prevState.elementArray[newIndex]
+
+                return {
+                    arrayIndex: newIndex,
+                    currentAtomicNumber: newElement.atomicNumber,
+                    currentSymbol: newElement.symbol,
+                    currentName: newElement.name
+                }
+            })
+
+            this.clearPlaceholder()
+
+            // console.log('add')
+        }
+    }
+
+    subOne() {
+        const currentArrayIndex = this.state.arrayIndex
+
+        if(currentArrayIndex===0) {
+            // console.log('nah')
+        } else {
+            this.setState(prevState => {
+                let newIndex = prevState.arrayIndex - 1
+
+                let newElement = prevState.elementArray[newIndex]
+
+                return {
+                    arrayIndex: newIndex,
+                    currentAtomicNumber: newElement.atomicNumber,
+                    currentSymbol: newElement.symbol,
+                    currentName: newElement.name
+                }
+            })
+
+            this.clearPlaceholder()
+
+            // console.log('sub')
+        }
     }
 
 
@@ -148,11 +205,18 @@ class Cards extends Component {
             currentName: newStart.name
         })
 
+        this.clearPlaceholder()
+
         console.log('random!')
     }
 
     reset() {
         this.getPeriodicTable()
+        this.clearPlaceholder()
+    }
+
+    clearPlaceholder() {
+        document.getElementById("answer").reset();
     }
 
     render() {
@@ -163,17 +227,19 @@ class Cards extends Component {
                 <div className="card">
                     <div id="atom-num">{this.state.currentAtomicNumber}</div>
                     <div id="atom-sym">{this.state.currentSymbol}</div>
-                    <form onSubmit={(event) => this.handleFormSubmit(event)}>
+                    <form id="answer" onSubmit={(event) => this.handleFormSubmit(event)}>
                         <label>
                             <input name="answer" className="guess-form" placeholder="Guess the Element" value={this.answer} />
                         </label>
-                        <input className="guess-button" type="submit" value={this.state.guess} />
+                        <input className="button guess-button" type="submit" value={this.state.guess} />
                     </form>
                 </div>
 
                 <div className="buttons">
-                    <button onClick={this.randomize}>Random</button>
-                    <button onClick={this.reset}>Reset</button>
+                    <button className="button" onClick={this.subOne}>Previous</button>
+                    <button className="button" onClick={this.randomize}>Random</button>
+                    <button className="button" onClick={this.reset}>Reset</button>
+                    <button className="button" onClick={this.addOne}>Skip</button>
                 </div>
 
             </div>

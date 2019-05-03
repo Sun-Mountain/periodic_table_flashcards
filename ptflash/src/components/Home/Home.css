@@ -14,7 +14,7 @@
     margin: 10px auto;
 }
 
-button {
+.button {
     border: 2px #444444 solid;
     border-radius: 10px;
     color: #444444;
@@ -22,9 +22,13 @@ button {
     padding: 5px;
 }
 
-button:hover {
+.button:hover {
     background-color: #444444;
     color: #FFFFFF;
+}
+
+.button:focus {
+    outline:0;
 }
 
 .card {

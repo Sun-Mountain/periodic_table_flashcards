@@ -23,7 +23,7 @@ class App extends Component {
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/quiz" exact render={() => (
-                <Cards {...this.props} reset={this.reset} randomize={this.randomize} />
+                <Cards />
               )} />
             </Switch>
           </main>

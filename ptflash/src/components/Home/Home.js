@@ -157,10 +157,10 @@ class Home extends Component {
                 </div>
 
                 <div className="buttons">
-                    <button onClick={this.subOne}>Previous</button>
-                    <button onClick={this.randomize}>Random</button>
-                    <button onClick={this.reset}>Reset</button>
-                    <button onClick={this.addOne}>Next</button>
+                    <button className="button" onClick={this.subOne}>Previous</button>
+                    <button className="button" onClick={this.randomize}>Random</button>
+                    <button className="button" onClick={this.reset}>Reset</button>
+                    <button className="button" onClick={this.addOne}>Next</button>
                 </div>
             </div>
         )
