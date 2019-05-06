@@ -35,7 +35,7 @@ class Quiz extends Component {
     getPeriodicTable() {
         const Url = 'https://neelpatel05.pythonanywhere.com'
 
-        const arrayIndex = this.state.arrayIndex
+        const arrayIndex = 0
 
         // fetch periodic table api in array
         axios.get(Url, arrayIndex)
