@@ -11,6 +11,7 @@ I lowkey love the periodic table and it's one of my favorite things to revisit t
 
 # Acknowledgements
 * [Periodic Table API](https://github.com/neelpatel05/periodic-table-api) by [neelpatel05](https://github.com/neelpatel05)
+* Periodic Table Logo by [Freekpik](https://www.freepik.com/)
 
 # In Progress
 * Creating alternative quizzes

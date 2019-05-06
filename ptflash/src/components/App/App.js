@@ -12,6 +12,7 @@ class App extends Component {
     return (
         <div>
           <nav id="nav-main">
+            <img id="logo" src="periodic-table.svg" />
             <Link to="/" className="nav-main-link">
               <h1>Flashcards</h1>
             </Link>

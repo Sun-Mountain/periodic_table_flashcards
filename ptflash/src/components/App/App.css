@@ -4,6 +4,11 @@ body {
   margin: 0 auto;
 }
 
+#logo {
+    height: 68px;
+    width: auto;
+}
+
 .nav-main-link {
   color: #ffffff;
   padding: 0 5vw;

@@ -344,7 +344,7 @@ class Quiz extends Component {
 
                         <div id="atom-sym">
                             {selectedSymbolButton ? 
-                                <form>
+                                <form id="answer">
                                     <label>
                                         <input name="answer" className="guess-form-symbol" />
                                     </label>
