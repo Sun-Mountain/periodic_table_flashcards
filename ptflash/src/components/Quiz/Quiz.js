@@ -258,7 +258,7 @@ class Quiz extends Component {
         let guessSymbol = this.state.guessSymbol
 
         if(guessElement || guessSymbol === true){
-            document.getElementById("answer").reset();
+            document.getElementsByClassName("answer").reset();
         } else {
             console.log('nah')
         }
@@ -346,7 +346,7 @@ class Quiz extends Component {
 
                         <div>
                             {selectedElementButton ?
-                                <form id="answer" onSubmit={(event) => this.handleFormSubmit(event)}>
+                                <form className="answer" onSubmit={(event) => this.handleFormSubmit(event)}>
                                     <label>
                                         <input name="answer" className="guess-form" placeholder="Guess the Element" value={this.answer} />
                                     </label>
@@ -354,7 +354,8 @@ class Quiz extends Component {
                                 </form> : 
                                 <div id="atom-name">
                                     {this.state.currentName}
-                                </div>}
+                                </div>
+                            }
                         </div>
 
                     </div>
