@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+// import { Route, Link, Switch } from 'react-router-dom';
 import './Quiz.css';
 import axios from 'axios';
 
@@ -14,7 +14,9 @@ class Quiz extends Component {
             currentAtomicNumber: '',
             currentSymbol: '',
             currentName: '',
-            guess: 'Guess'
+            guess: 'Guess',
+            skipCount: 0,
+            guessCount: 0
         }
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
@@ -49,7 +51,8 @@ class Quiz extends Component {
                     arrayIndex: 0,
                     currentAtomicNumber: currentElement.atomicNumber,
                     currentSymbol: currentElement.symbol,
-                    currentName: currentElement.name
+                    currentName: currentElement.name,
+                    guess: 'Guess',
                 })
 
                 // console.log(this.state)
@@ -69,27 +72,7 @@ class Quiz extends Component {
 
         if (button === 'Correct! Next >>') {
 
-            this.setState(prevState => {
-                console.log(prevState.arrayIndex)
-
-                let newIndex = prevState.arrayIndex + 1
-
-                console.log(newIndex)
-
-                let newElement = prevState.elementArray[newIndex]
-
-                console.log(newElement)
-
-                return {
-                    arrayIndex: newIndex,
-                    currentAtomicNumber: newElement.atomicNumber,
-                    currentSymbol: newElement.symbol,
-                    currentName: newElement.name,
-                    guess: 'Guess'
-                }
-            })
-
-            this.clearPlaceholder()
+            this.addOne()
 
             // console.log('next!')
 
@@ -136,7 +119,8 @@ class Quiz extends Component {
                     arrayIndex: newIndex,
                     currentAtomicNumber: newElement.atomicNumber,
                     currentSymbol: newElement.symbol,
-                    currentName: newElement.name
+                    currentName: newElement.name,
+                    guess: 'Guess'
                 }
             })
 
@@ -224,14 +208,23 @@ class Quiz extends Component {
 
         return(
             <div>
-                <nav id="nav-quiz">
+                {/* <nav id="nav-quiz">
                     <Link to="/quiz" className="nav-quiz-link">
                         <h3>Element Name</h3>
                     </Link>
                     <Link to="/quiz" className="nav-quiz-link">
                         <h3>Element Symbol</h3>
                     </Link>
-                </nav>
+                </nav> */}
+
+                <div className="element-limit">
+                    <form id="number-form">
+                        <input placeholder="start" />
+                        <input placeholder="end" />
+                        <input type="submit" value="Submit" />
+                    </form>
+                </div>
+
                 <div className="flashcard">
 
                     <div className="card">
@@ -246,7 +239,6 @@ class Quiz extends Component {
                     </div>
 
                     <div className="buttons">
-                        <button className="button" onClick={this.subOne}>Previous</button>
                         <button className="button" onClick={this.randomize}>Random</button>
                         <button className="button" onClick={this.reset}>Reset</button>
                         <button className="button" onClick={this.addOne}>Skip</button>

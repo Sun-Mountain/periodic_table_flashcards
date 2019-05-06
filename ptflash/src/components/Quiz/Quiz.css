@@ -20,8 +20,13 @@
     max-width: 300px;
 }
 
-.flashcard {
+.element-limit {
     margin: 0 auto;
+    width: 350px;
+}
+
+.flashcard {
+    margin: 15px auto;
 }
 
 form {
@@ -63,6 +68,12 @@ h3 {
     color: #444;
     margin: 0 0 15px 0;
     text-decoration: none;
+}
+
+#number-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 /* Center Placeholder Text */
