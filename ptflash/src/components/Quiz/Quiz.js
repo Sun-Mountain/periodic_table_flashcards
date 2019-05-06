@@ -72,9 +72,31 @@ class Quiz extends Component {
 
         if (button === 'Correct! Next >>') {
 
-            this.addOne()
+            const currentArrayIndex = this.state.arrayIndex
+            const currentElementArray = this.state.elementArray
+            const arrayLimit = currentElementArray.length - 1
+
+            if (currentArrayIndex===arrayLimit) {
+                console.log('nah')
+            } else {
+                this.setState(prevState => {
+                    let newIndex = prevState.arrayIndex + 1
+
+                    let newElement = prevState.elementArray[newIndex]
+
+                    return {
+                        arrayIndex: newIndex,
+                        currentAtomicNumber: newElement.atomicNumber,
+                        currentSymbol: newElement.symbol,
+                        currentName: newElement.name,
+                        guess: 'Guess'
+                    }
+                })
+
+                this.clearPlaceholder()
 
             // console.log('next!')
+            }
 
         } else {
             const answer = event.target.elements.answer.value.toLowerCase()
@@ -91,8 +113,14 @@ class Quiz extends Component {
                 // console.log('nah')
             } else {
 
-                this.setState({
-                    guess: 'Correct! Next >>'
+                this.setState(prevState =>{
+
+                    let newCorrect = prevState.guessCount + 1
+
+                    return {
+                        guess: 'Correct! Next >>',
+                        guessCount: newCorrect
+                    }
                 })
 
                 console.log(this.state.guess)
@@ -115,12 +143,15 @@ class Quiz extends Component {
 
                 let newElement = prevState.elementArray[newIndex]
 
+                let newSkip = prevState.skipCount + 1
+
                 return {
                     arrayIndex: newIndex,
                     currentAtomicNumber: newElement.atomicNumber,
                     currentSymbol: newElement.symbol,
                     currentName: newElement.name,
-                    guess: 'Guess'
+                    guess: 'Guess',
+                    skipCount: newSkip
                 }
             })
 
