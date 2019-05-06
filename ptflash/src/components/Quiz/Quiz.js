@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Route, Link, Switch } from 'react-router-dom';
 import './Quiz.css';
 import axios from 'axios';
 
@@ -17,7 +16,11 @@ class Quiz extends Component {
             guess: 'Guess',
             skipCount: 0,
             guessCount: 0,
-            wrongCount: 0
+            wrongCount: 0,
+            arrayStart: 0,
+            arrayEnd: 0,
+            guessSymbol: false,
+            guessElement: true
         }
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
@@ -28,6 +31,8 @@ class Quiz extends Component {
         this.reset = this.reset.bind(this)
         this.clearPlaceholder = this.clearPlaceholder.bind(this)
         this.resetCounters = this.resetCounters.bind(this)
+        this.guessElementInput = this.guessElementInput.bind(this)
+        this.guessSymbolInput = this.guessSymbolInput.bind(this)
     }
 
     componentDidMount() {
@@ -44,6 +49,8 @@ class Quiz extends Component {
             .then(res => {
                 let updateList = res.data
 
+                let end = updateList.length - 1
+
                 let currentElement = updateList[arrayIndex]
 
                 // console.log(currentElement)
@@ -55,8 +62,11 @@ class Quiz extends Component {
                     currentSymbol: currentElement.symbol,
                     currentName: currentElement.name,
                     guess: 'Guess',
+                    arrayStart: 0,
+                    arrayEnd: end
                 })
 
+                // console.log(updateList[end])
                 // console.log(this.state)
             })
 
@@ -131,7 +141,7 @@ class Quiz extends Component {
                     }
                 })
 
-                console.log(this.state.guess)
+                // console.log(this.state.guess)
                 // console.log('yay - changed')
             }
         }
@@ -251,26 +261,69 @@ class Quiz extends Component {
         })
     }
 
+    guessElementInput() {
+
+        let currentGuessElement = this.state.guessElement
+
+        if (currentGuessElement !== true) {
+
+            this.setState({
+                guessElement: true
+            })
+
+            // console.log(this.state.guessElement)
+
+        } else {
+
+            this.setState({
+                guessElement: false
+            })
+
+            // console.log(this.state.guessElement)
+        }
+    }
+
+    guessSymbolInput() {
+
+        let currentSymbolElement = this.state.guessSymbol
+
+        if (currentSymbolElement !== true) {
+
+            this.setState({
+                guessSymbol: true
+            })
+
+            // console.log(this.state.guessSymbol)
+
+        } else {
+
+            this.setState({
+                guessSymbol: false
+            })
+
+            // console.log(this.state.guessSymbol)
+        }
+    }
+
     render() {
+
+        const nameButton = this.state.guessElement
+        const symbolButton = this.state.guessSymbol
 
         return(
             <div>
-                {/* <nav id="nav-quiz">
-                    <Link to="/quiz" className="nav-quiz-link">
-                        <h3>Element Name</h3>
-                    </Link>
-                    <Link to="/quiz" className="nav-quiz-link">
-                        <h3>Element Symbol</h3>
-                    </Link>
-                </nav> */}
+                <nav id="nav-quiz">
+                    <button className="button" onClick={this.guessElementInput}>Element Name</button>
+                    <button className="button" onClick={this.guessSymbolInput}>Element Symbol</button>
+                </nav>
 
-                <div className="element-limit">
+                {/* <div className="element-limit">
                     <form id="number-form">
                         <input placeholder="start" />
                         <input placeholder="end" />
                         <input className="button" type="submit" value="Submit" />
                     </form>
-                </div>
+                </div> */}
 
                 <div className="flashcard">
 
