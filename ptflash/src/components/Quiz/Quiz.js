@@ -342,7 +342,17 @@ class Quiz extends Component {
 
                         <div id="atom-num">{this.state.currentAtomicNumber}</div>
 
-                        <div id="atom-sym">{this.state.currentSymbol}</div>
+                        <div>
+                            {selectedSymbolButton ? 
+                                <form>
+                                    <label>
+                                        <input name="answer" className="guess-form-symbol" />
+                                    </label>
+                                    <input className="button guess-button" type="submit" />
+                                </form> :
+                                <div id="atom-sym">{this.state.currentSymbol}</div>
+                            }
+                        </div>
 
                         <div>
                             {selectedElementButton ?
