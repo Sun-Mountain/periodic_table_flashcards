@@ -27,6 +27,7 @@ class Quiz extends Component {
         this.randomize = this.randomize.bind(this)
         this.reset = this.reset.bind(this)
         this.clearPlaceholder = this.clearPlaceholder.bind(this)
+        this.resetCounters = this.resetCounters.bind(this)
     }
 
     componentDidMount() {
@@ -242,6 +243,14 @@ class Quiz extends Component {
         document.getElementById("answer").reset();
     }
 
+    resetCounters() {
+        this.setState({
+            skipCount: 0,
+            guessCount: 0,
+            wrongCount: 0
+        })
+    }
+
     render() {
 
         return(
@@ -259,7 +268,7 @@ class Quiz extends Component {
                     <form id="number-form">
                         <input placeholder="start" />
                         <input placeholder="end" />
-                        <input type="submit" value="Submit" />
+                        <input className="button" type="submit" value="Submit" />
                     </form>
                 </div>
 
@@ -286,6 +295,10 @@ class Quiz extends Component {
                         <div>Correct: <span id="correct-count">{this.state.guessCount}</span></div>
                         <div>Wrong: <span id="wrong-count">{this.state.wrongCount}</span></div>
                         <div>Skipped: <span id="skip-count">{this.state.skipCount}</span></div>
+                    </div>
+
+                    <div className="buttons reset">
+                        <button className="button" onClick={this.resetCounters}>Reset Counters</button>
                     </div>
                 </div>
             </div>
