@@ -76,6 +76,14 @@ h3 {
     justify-content: space-around;
 }
 
+.stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 300px;
+}
+
 /* Center Placeholder Text */
 
 ::-webkit-input-placeholder {

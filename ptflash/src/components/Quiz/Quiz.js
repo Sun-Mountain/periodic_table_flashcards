@@ -243,6 +243,11 @@ class Quiz extends Component {
                         <button className="button" onClick={this.reset}>Reset</button>
                         <button className="button" onClick={this.addOne}>Skip</button>
                     </div>
+
+                    <div className="stats">
+                        <div>Correct: <span id="correct-count">{this.state.guessCount}</span></div>
+                        <div>Skipped: <span id="skip-count">{this.state.skipCount}</span></div>
+                    </div>
                 </div>
             </div>
         )
