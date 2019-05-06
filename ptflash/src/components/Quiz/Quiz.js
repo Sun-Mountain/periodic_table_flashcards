@@ -16,7 +16,8 @@ class Quiz extends Component {
             currentName: '',
             guess: 'Guess',
             skipCount: 0,
-            guessCount: 0
+            guessCount: 0,
+            wrongCount: 0
         }
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
@@ -106,8 +107,14 @@ class Quiz extends Component {
             
             if (answer !== element) {
 
-                this.setState({
-                    guess: 'Guess Again'
+                this.setState(prevState => {
+
+                    let newWrongCount = prevState.wrongCount + 1
+
+                    return {
+                        guess: 'Guess Again',
+                        wrongCount: newWrongCount
+                    }
                 })
 
                 // console.log('nah')
@@ -277,6 +284,7 @@ class Quiz extends Component {
 
                     <div className="stats">
                         <div>Correct: <span id="correct-count">{this.state.guessCount}</span></div>
+                        <div>Wrong: <span id="wrong-count">{this.state.wrongCount}</span></div>
                         <div>Skipped: <span id="skip-count">{this.state.skipCount}</span></div>
                     </div>
                 </div>
