@@ -16,7 +16,7 @@ I lowkey love the periodic table and it's one of my favorite things to revisit t
 * Creating alternative quizzes
     * ~~Quiz element name~~
     * Quiz element symbol
-* Quiz counters (correct vs. skipped)
+* ~~Quiz counters (correct vs. wrong vs. skipped)~~
     * Remove correct answers from rotation
 * Specify which elements to quiz on (number range)
 * Reduce code by passing up states & functions used in multiple components
