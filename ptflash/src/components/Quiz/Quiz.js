@@ -13,7 +13,7 @@ class Quiz extends Component {
             currentAtomicNumber: '',
             currentSymbol: '',
             currentName: '',
-            guess: 'Guess',
+            guessName: 'Guess',
             skipCount: 0,
             guessCount: 0,
             wrongCount: 0,
@@ -24,7 +24,7 @@ class Quiz extends Component {
         }
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
-        this.handleFormSubmit = this.handleFormSubmit.bind(this)
+        this.handleFormSubmitName = this.handleFormSubmitName.bind(this)
 
         this.addOne = this.addOne.bind(this)
         this.subOne = this.subOne.bind(this)
@@ -65,7 +65,7 @@ class Quiz extends Component {
                     currentAtomicNumber: currentElement.atomicNumber,
                     currentSymbol: currentElement.symbol,
                     currentName: currentElement.name,
-                    guess: 'Guess',
+                    guessName: 'Guess',
                     arrayStart: 0,
                     arrayEnd: end
                 })
@@ -81,10 +81,10 @@ class Quiz extends Component {
 
     }
 
-    handleFormSubmit(event) {
+    handleFormSubmitName(event) {
         event.preventDefault()
 
-        const button = this.state.guess
+        const button = this.state.guessName
 
         if (button === 'Correct! Next >>') {
 
@@ -105,7 +105,7 @@ class Quiz extends Component {
                         currentAtomicNumber: newElement.atomicNumber,
                         currentSymbol: newElement.symbol,
                         currentName: newElement.name,
-                        guess: 'Guess'
+                        guessName: 'Guess'
                     }
                 })
 
@@ -127,7 +127,7 @@ class Quiz extends Component {
                     let newWrongCount = prevState.wrongCount + 1
 
                     return {
-                        guess: 'Guess Again',
+                        guessName: 'Guess Again',
                         wrongCount: newWrongCount
                     }
                 })
@@ -140,7 +140,7 @@ class Quiz extends Component {
                     let newCorrect = prevState.guessCount + 1
 
                     return {
-                        guess: 'Correct! Next >>',
+                        guessName: 'Correct! Next >>',
                         guessCount: newCorrect
                     }
                 })
@@ -172,7 +172,7 @@ class Quiz extends Component {
                     currentAtomicNumber: newElement.atomicNumber,
                     currentSymbol: newElement.symbol,
                     currentName: newElement.name,
-                    guess: 'Guess',
+                    guessName: 'Guess',
                     skipCount: newSkip
                 }
             })
@@ -258,7 +258,7 @@ class Quiz extends Component {
         let guessSymbol = this.state.guessSymbol
 
         if(guessElement || guessSymbol === true){
-            document.getElementsByClassName("answer").reset();
+            document.getElementById("answer").reset();
         } else {
             console.log('nah')
         }
@@ -342,7 +342,7 @@ class Quiz extends Component {
 
                         <div id="atom-num">{this.state.currentAtomicNumber}</div>
 
-                        <div>
+                        <div id="atom-sym">
                             {selectedSymbolButton ? 
                                 <form>
                                     <label>
@@ -350,19 +350,19 @@ class Quiz extends Component {
                                     </label>
                                     <input className="button guess-button" type="submit" />
                                 </form> :
-                                <div id="atom-sym">{this.state.currentSymbol}</div>
+                                <div>{this.state.currentSymbol}</div>
                             }
                         </div>
 
-                        <div>
+                        <div id="atom-name">
                             {selectedElementButton ?
-                                <form className="answer" onSubmit={(event) => this.handleFormSubmit(event)}>
+                                <form id="answer" onSubmit={(event) => this.handleFormSubmitName(event)}>
                                     <label>
                                         <input name="answer" className="guess-form" placeholder="Guess the Element" value={this.answer} />
                                     </label>
-                                    <input className="button guess-button" type="submit" value={this.state.guess} />
+                                    <input className="button guess-button" type="submit" value={this.state.guessName} />
                                 </form> : 
-                                <div id="atom-name">
+                                <div>
                                     {this.state.currentName}
                                 </div>
                             }
