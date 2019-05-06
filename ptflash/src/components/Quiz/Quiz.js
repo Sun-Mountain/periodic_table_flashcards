@@ -254,7 +254,14 @@ class Quiz extends Component {
     }
 
     clearPlaceholder() {
-        document.getElementById("answer").reset();
+        let guessElement = this.state.guessElement
+        let guessSymbol = this.state.guessSymbol
+
+        if(guessElement || guessSymbol === true){
+            document.getElementById("answer").reset();
+        } else {
+            console.log('nah')
+        }
     }
 
     resetCounters() {
