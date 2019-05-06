@@ -332,14 +332,24 @@ class Quiz extends Component {
                 <div className="flashcard">
 
                     <div className="card">
+
                         <div id="atom-num">{this.state.currentAtomicNumber}</div>
+
                         <div id="atom-sym">{this.state.currentSymbol}</div>
-                        <form id="answer" onSubmit={(event) => this.handleFormSubmit(event)}>
-                            <label>
-                                <input name="answer" className="guess-form" placeholder="Guess the Element" value={this.answer} />
-                            </label>
-                            <input className="button guess-button" type="submit" value={this.state.guess} />
-                        </form>
+
+                        <div>
+                            {selectedElementButton ?
+                                <form id="answer" onSubmit={(event) => this.handleFormSubmit(event)}>
+                                    <label>
+                                        <input name="answer" className="guess-form" placeholder="Guess the Element" value={this.answer} />
+                                    </label>
+                                    <input className="button guess-button" type="submit" value={this.state.guess} />
+                                </form> : 
+                                <div id="atom-name">
+                                    {this.state.currentName}
+                                </div>}
+                        </div>
+
                     </div>
 
                     <div className="buttons">
