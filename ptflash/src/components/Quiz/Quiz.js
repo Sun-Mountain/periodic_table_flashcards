@@ -25,12 +25,16 @@ class Quiz extends Component {
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
         this.handleFormSubmit = this.handleFormSubmit.bind(this)
+
         this.addOne = this.addOne.bind(this)
         this.subOne = this.subOne.bind(this)
+
         this.randomize = this.randomize.bind(this)
         this.reset = this.reset.bind(this)
+
         this.clearPlaceholder = this.clearPlaceholder.bind(this)
         this.resetCounters = this.resetCounters.bind(this)
+
         this.guessElementInput = this.guessElementInput.bind(this)
         this.guessSymbolInput = this.guessSymbolInput.bind(this)
     }
@@ -307,14 +311,14 @@ class Quiz extends Component {
 
     render() {
 
-        const nameButton = this.state.guessElement
-        const symbolButton = this.state.guessSymbol
+        const selectedElementButton = this.state.guessElement
+        const selectedSymbolButton = this.state.guessSymbol
 
         return(
             <div>
                 <nav id="nav-quiz">
-                    <button className="button" onClick={this.guessElementInput}>Element Name</button>
-                    <button className="button" onClick={this.guessSymbolInput}>Element Symbol</button>
+                    <button className={selectedElementButton ? 'button-selected' : 'button'} onClick={this.guessElementInput}>Element Name</button>
+                    <button className={selectedSymbolButton ? 'button-selected' : 'button'}onClick={this.guessSymbolInput}>Element Symbol</button>
                 </nav>
 
                 {/* <div className="element-limit">
