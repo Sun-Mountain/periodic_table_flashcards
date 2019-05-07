@@ -45,6 +45,11 @@ form {
     width: 175px;
 }
 
+.guess-form-symbol {
+    font-size: 100px;
+    width: 180px;
+}
+
 h3 {
     font-size: 22px;
 }
