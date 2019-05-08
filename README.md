@@ -14,9 +14,10 @@ I lowkey love the periodic table and it's one of my favorite things to revisit t
 * Periodic Table Logo by [Freekpik](https://www.freepik.com/)
 
 # In Progress
-* Creating alternative quizzes
+* ~~Creating alternative quizzes~~
     * ~~Quiz element name~~
-    * Quiz element symbol
+    * ~~Quiz element symbol~~
+* Create more strict quiz qualifications
 * ~~Quiz counters (correct vs. wrong vs. skipped)~~
     * Remove correct answers from rotation
 * Specify which elements to quiz on (number range)
