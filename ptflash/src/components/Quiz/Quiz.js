@@ -419,7 +419,7 @@ class Quiz extends Component {
                             {selectedSymbolButton ? 
                                 <form id="answer" onSubmit={(event) => this.handleFormSubmitSymbol(event)}>
                                     <label>
-                                        <input name="answer" className="guess-form-symbol" value={this.answer} />
+                                        <input name="answer" className="guess-form-symbol" placeholder="Sym" value={this.answer} />
                                     </label>
                                     <input className="button guess-button" type="submit" value={this.state.guessSymButton} />
                                 </form> :
