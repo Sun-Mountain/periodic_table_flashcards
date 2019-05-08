@@ -13,18 +13,20 @@ class Quiz extends Component {
             currentAtomicNumber: '',
             currentSymbol: '',
             currentName: '',
+            guessSymButton: 'Guess',
             guessName: 'Guess',
             skipCount: 0,
             guessCount: 0,
             wrongCount: 0,
             arrayStart: 0,
             arrayEnd: 0,
-            guessSymbol: false,
-            guessElement: true
+            guessSymbol: true,
+            guessElement: false
         }
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
         this.handleFormSubmitName = this.handleFormSubmitName.bind(this)
+        this.handleFormSubmitSymbol = this.handleFormSubmitSymbol.bind(this)
 
         this.addOne = this.addOne.bind(this)
         this.subOne = this.subOne.bind(this)
@@ -141,6 +143,77 @@ class Quiz extends Component {
 
                     return {
                         guessName: 'Correct! Next >>',
+                        guessCount: newCorrect
+                    }
+                })
+
+                // console.log(this.state.guess)
+                // console.log('yay - changed')
+            }
+        }
+
+    }
+
+    handleFormSubmitSymbol(event) {
+        event.preventDefault()
+
+        const button = this.state.guessSymButton
+
+        if (button === 'Correct! Next >>') {
+
+            const currentArrayIndex = this.state.arrayIndex
+            const currentElementArray = this.state.elementArray
+            const arrayLimit = currentElementArray.length - 1
+
+            if (currentArrayIndex===arrayLimit) {
+                console.log('nah')
+            } else {
+                this.setState(prevState => {
+                    let newIndex = prevState.arrayIndex + 1
+
+                    let newElement = prevState.elementArray[newIndex]
+
+                    return {
+                        arrayIndex: newIndex,
+                        currentAtomicNumber: newElement.atomicNumber,
+                        currentSymbol: newElement.symbol,
+                        currentName: newElement.name,
+                        guessSymButton: 'Guess'
+                    }
+                })
+
+                this.clearPlaceholder()
+
+            // console.log('next!')
+            }
+
+        } else {
+            const answer = event.target.elements.answer.value.toLowerCase()
+            const symbol = this.state.currentSymbol.toLowerCase()
+
+            // console.log(answer)
+            
+            if (answer !== symbol) {
+
+                this.setState(prevState => {
+
+                    let newWrongCount = prevState.wrongCount + 1
+
+                    return {
+                        guessSymButton: 'Guess Again',
+                        wrongCount: newWrongCount
+                    }
+                })
+
+                // console.log('nah')
+            } else {
+
+                this.setState(prevState =>{
+
+                    let newCorrect = prevState.guessCount + 1
+
+                    return {
+                        guessSymButton: 'Correct! Next >>',
                         guessCount: newCorrect
                     }
                 })
@@ -344,11 +417,11 @@ class Quiz extends Component {
 
                         <div id="atom-sym">
                             {selectedSymbolButton ? 
-                                <form id="answer">
+                                <form id="answer" onSubmit={(event) => this.handleFormSubmitSymbol(event)}>
                                     <label>
-                                        <input name="answer" className="guess-form-symbol" />
+                                        <input name="answer" className="guess-form-symbol" value={this.answer} />
                                     </label>
-                                    <input className="button guess-button" type="submit" />
+                                    <input className="button guess-button" type="submit" value={this.state.guessSymButton} />
                                 </form> :
                                 <div>{this.state.currentSymbol}</div>
                             }
