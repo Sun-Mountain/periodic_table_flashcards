@@ -89,6 +89,10 @@ h3 {
     width: 300px;
 }
 
+.reset {
+    margin: 0 auto;
+}
+
 /* Center Placeholder Text */
 
 ::-webkit-input-placeholder {

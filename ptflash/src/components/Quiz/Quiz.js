@@ -352,7 +352,8 @@ class Quiz extends Component {
         if (currentGuessElement !== true) {
 
             this.setState({
-                guessElement: true
+                guessElement: true,
+                // guessSymbol: false
             })
 
             // console.log(this.state.guessElement)
@@ -374,6 +375,7 @@ class Quiz extends Component {
         if (currentSymbolElement !== true) {
 
             this.setState({
+                // guessElement: false,
                 guessSymbol: true
             })
 
@@ -455,8 +457,8 @@ class Quiz extends Component {
                         <div>Skipped: <span id="skip-count">{this.state.skipCount}</span></div>
                     </div>
 
-                    <div className="buttons reset">
-                        <button className="button" onClick={this.resetCounters}>Reset Counters</button>
+                    <div className="buttons">
+                        <button className="button reset" onClick={this.resetCounters}>Reset Counters</button>
                     </div>
                 </div>
             </div>

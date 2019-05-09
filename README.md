@@ -20,6 +20,7 @@ I lowkey love the periodic table and it's one of my favorite things to revisit t
 * Create more strict quiz qualifications
 * ~~Quiz counters (correct vs. wrong vs. skipped)~~
     * Remove correct answers from rotation
+* Make sure spaces don't read as a wrong answer
 * Specify which elements to quiz on (number range)
 * Reduce code by passing up states & functions used in multiple components
 * Deploy to webhost
