@@ -18,8 +18,9 @@ I lowkey love the periodic table and it's one of my favorite things to revisit t
     * ~~Quiz element name~~
     * ~~Quiz element symbol~~
 * ~~Quiz counters (correct vs. wrong vs. skipped)~~
-    * Remove correct answers from rotation
+    * ~~Remove correct answers from rotation~~
 * ~~Make sure spaces don't read as a wrong answer~~
+* Make adding & subtracting loop around the elements
 * Specify which elements to quiz on (number range)
     * Groups of elements
 * Reduce code by passing up states & functions used in multiple components

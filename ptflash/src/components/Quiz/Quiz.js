@@ -20,8 +20,8 @@ class Quiz extends Component {
             wrongCount: 0,
             arrayStart: 0,
             arrayEnd: 0,
-            guessSymbol: true,
-            guessElement: false
+            guessSymbol: false,
+            guessElement: true
         }
 
         this.getPeriodicTable = this.getPeriodicTable.bind(this)
@@ -98,7 +98,9 @@ class Quiz extends Component {
                 console.log('nah')
             } else {
                 this.setState(prevState => {
-                    let newIndex = prevState.arrayIndex + 1
+                    let newIndex = prevState.arrayIndex
+
+                    currentElementArray.splice(currentArrayIndex,1)
 
                     let newElement = prevState.elementArray[newIndex]
 
@@ -173,13 +175,13 @@ class Quiz extends Component {
                 this.setState(prevState => {
                     let newIndex = prevState.arrayIndex
 
-                    console.log(currentElementArray.length)
-                    console.log(currentArrayIndex)
+                    // console.log(currentElementArray.length)
+                    // console.log(currentArrayIndex)
 
                     currentElementArray.splice(currentArrayIndex,1)
 
-                    console.log(currentElementArray)
-                    console.log(currentArrayIndex)
+                    // console.log(currentElementArray)
+                    // console.log(currentArrayIndex)
 
                     let newElement = prevState.elementArray[newIndex]
 
@@ -458,6 +460,7 @@ class Quiz extends Component {
                     </div>
 
                     <div className="buttons">
+                        <button className="button" onClick={this.subOne}>Back</button>
                         <button className="button" onClick={this.randomize}>Random</button>
                         <button className="button" onClick={this.reset}>Reset</button>
                         <button className="button" onClick={this.addOne}>Skip</button>
