@@ -171,7 +171,15 @@ class Quiz extends Component {
                 console.log('nah')
             } else {
                 this.setState(prevState => {
-                    let newIndex = prevState.arrayIndex + 1
+                    let newIndex = prevState.arrayIndex
+
+                    console.log(currentElementArray.length)
+                    console.log(currentArrayIndex)
+
+                    currentElementArray.splice(currentArrayIndex,1)
+
+                    console.log(currentElementArray)
+                    console.log(currentArrayIndex)
 
                     let newElement = prevState.elementArray[newIndex]
 
@@ -322,7 +330,7 @@ class Quiz extends Component {
 
         this.clearPlaceholder()
 
-        console.log('random!')
+        // console.log('random!')
     }
 
     reset() {
