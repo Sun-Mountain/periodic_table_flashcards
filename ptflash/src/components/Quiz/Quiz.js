@@ -192,10 +192,12 @@ class Quiz extends Component {
         } else {
             const answer = event.target.elements.answer.value.toLowerCase()
             const symbol = this.state.currentSymbol.toLowerCase()
+            const noSpaceAnswer = answer.replace(/\s/g, '')
 
             // console.log(answer)
+            // console.log(noSpaceAnswer)
             
-            if (answer !== symbol) {
+            if (noSpaceAnswer !== symbol) {
 
                 this.setState(prevState => {
 
