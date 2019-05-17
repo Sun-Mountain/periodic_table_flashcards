@@ -17,8 +17,11 @@ class App extends Component {
               <h1>Flashcards</h1>
             </Link>
             <Link to="/quiz" className="nav-main-link">
-              <h1>Quiz Yourself</h1>
+              <h1>Quiz</h1>
             </Link>
+            {/* <Link to="/test" className="nav-main-link">
+              <h1>Test</h1>
+            </Link> */}
           </nav>
           <main>
             <Switch>
