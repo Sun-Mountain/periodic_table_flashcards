@@ -132,6 +132,8 @@ class Quiz extends Component {
 
                     let newWrongCount = prevState.wrongCount + 1
 
+                    this.clearPlaceholder()
+
                     return {
                         guessName: 'Guess Again',
                         wrongCount: newWrongCount
@@ -212,6 +214,8 @@ class Quiz extends Component {
                 this.setState(prevState => {
 
                     let newWrongCount = prevState.wrongCount + 1
+
+                    this.clearPlaceholder()
 
                     return {
                         guessSymButton: 'Guess Again',
