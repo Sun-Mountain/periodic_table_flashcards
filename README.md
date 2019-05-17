@@ -13,6 +13,10 @@ I lowkey love the periodic table and it's one of my favorite things to revisit t
 * [Periodic Table API](https://github.com/neelpatel05/periodic-table-api) by [neelpatel05](https://github.com/neelpatel05)
 * Periodic Table Logo by [Freekpik](https://www.freepik.com/)
 
+# Use the App
+
+http://ptflash.surge.sh/
+
 # In Progress
 * ~~Creating alternative quizzes~~
     * ~~Quiz element name~~
@@ -25,4 +29,4 @@ I lowkey love the periodic table and it's one of my favorite things to revisit t
     * Groups of elements
 * Reduce code by passing up states & functions used in multiple components
 * Make a stricter Test option
-* Deploy to webhost
+* ~~Deploy to webhost~~
