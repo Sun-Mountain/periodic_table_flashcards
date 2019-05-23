@@ -63,7 +63,7 @@ class Quiz extends Component {
 
                 this.setState({
                     elementArray: updateList,
-                    arrayIndex: 0,
+                    arrayIndex: 110,
                     currentAtomicNumber: currentElement.atomicNumber,
                     currentSymbol: currentElement.symbol,
                     currentName: currentElement.name,
@@ -248,10 +248,19 @@ class Quiz extends Component {
         const currentElementArray = this.state.elementArray
         const arrayLimit = currentElementArray.length - 1
 
-        if (currentArrayIndex===arrayLimit) {
+        if (currentArrayIndex === arrayLimit) {
+            const firstElement = currentElementArray[0]
+
             this.setState(prevState => {
+                let newSkip = prevState.skipCount + 1
+
                 return {
-                    arrayIndex: 0
+                    arrayIndex: 0,
+                    currentAtomicNumber: firstElement.atomicNumber,
+                    currentSymbol: firstElement.symbol,
+                    currentName: firstElement.name,
+                    guessName: 'Guess',
+                    skipCount: newSkip
                 }
             })
         } else {
