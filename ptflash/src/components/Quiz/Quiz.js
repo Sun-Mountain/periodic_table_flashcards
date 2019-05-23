@@ -63,7 +63,7 @@ class Quiz extends Component {
 
                 this.setState({
                     elementArray: updateList,
-                    arrayIndex: 110,
+                    arrayIndex: 0,
                     currentAtomicNumber: currentElement.atomicNumber,
                     currentSymbol: currentElement.symbol,
                     currentName: currentElement.name,
@@ -289,9 +289,22 @@ class Quiz extends Component {
 
     subOne() {
         const currentArrayIndex = this.state.arrayIndex
+        const currentArray = this.state.elementArray
+        const arrayLength = currentArray.length
 
         if(currentArrayIndex===0) {
-            // console.log('nah')
+            const newArrayIndex = arrayLength - 1
+            
+            const lastElement = currentArray[newArrayIndex]
+
+            this.setState(prevState => {
+                return {
+                    arrayIndex: newArrayIndex,
+                    currentAtomicNumber: lastElement.atomicNumber,
+                    currentSymbol: lastElement.symbol,
+                    currentName: lastElement.name
+                }
+            })
         } else {
             this.setState(prevState => {
                 let newIndex = prevState.arrayIndex - 1
