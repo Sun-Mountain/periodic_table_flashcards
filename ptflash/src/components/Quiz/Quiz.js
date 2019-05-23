@@ -249,7 +249,11 @@ class Quiz extends Component {
         const arrayLimit = currentElementArray.length - 1
 
         if (currentArrayIndex===arrayLimit) {
-            console.log('nah')
+            this.setState(prevState => {
+                return {
+                    arrayIndex: 0
+                }
+            })
         } else {
             this.setState(prevState => {
                 let newIndex = prevState.arrayIndex + 1

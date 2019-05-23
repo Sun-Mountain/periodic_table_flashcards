@@ -3,7 +3,6 @@ import './App.css';
 import { Route, Link, Switch } from 'react-router-dom';
 
 /* Route Imports */
-import Home from '../Home/Home'
 import Quiz from '../Quiz/Quiz'
 
 class App extends Component {
@@ -14,19 +13,12 @@ class App extends Component {
           <nav id="nav-main">
             <img id="logo" alt="logo" src="periodic-table.svg" />
             <Link to="/" className="nav-main-link">
-              <h1>Flashcards</h1>
-            </Link>
-            <Link to="/quiz" className="nav-main-link">
               <h1>Quiz</h1>
             </Link>
-            {/* <Link to="/test" className="nav-main-link">
-              <h1>Test</h1>
-            </Link> */}
           </nav>
           <main>
             <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/quiz" exact render={() => (
+              <Route path="/" exact render={() => (
                 <Quiz />
               )} />
             </Switch>
