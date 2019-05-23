@@ -15,7 +15,6 @@ class Quiz extends Component {
             currentName: '',
             guessSymButton: 'Guess',
             guessName: 'Guess',
-            skipCount: 0,
             guessCount: 0,
             wrongCount: 0,
             arrayStart: 0,
@@ -252,15 +251,12 @@ class Quiz extends Component {
             const firstElement = currentElementArray[0]
 
             this.setState(prevState => {
-                let newSkip = prevState.skipCount + 1
-
                 return {
                     arrayIndex: 0,
                     currentAtomicNumber: firstElement.atomicNumber,
                     currentSymbol: firstElement.symbol,
                     currentName: firstElement.name,
-                    guessName: 'Guess',
-                    skipCount: newSkip
+                    guessName: 'Guess'
                 }
             })
         } else {
@@ -269,15 +265,12 @@ class Quiz extends Component {
 
                 let newElement = prevState.elementArray[newIndex]
 
-                let newSkip = prevState.skipCount + 1
-
                 return {
                     arrayIndex: newIndex,
                     currentAtomicNumber: newElement.atomicNumber,
                     currentSymbol: newElement.symbol,
                     currentName: newElement.name,
-                    guessName: 'Guess',
-                    skipCount: newSkip
+                    guessName: 'Guess'
                 }
             })
 
@@ -383,7 +376,6 @@ class Quiz extends Component {
 
     resetCounters() {
         this.setState({
-            skipCount: 0,
             guessCount: 0,
             wrongCount: 0
         })
@@ -493,13 +485,12 @@ class Quiz extends Component {
                         <button className="button" onClick={this.subOne}>Back</button>
                         <button className="button" onClick={this.randomize}>Random</button>
                         <button className="button" onClick={this.reset}>Reset</button>
-                        <button className="button" onClick={this.addOne}>Skip</button>
+                        <button className="button" onClick={this.addOne}>Next</button>
                     </div>
 
                     <div className="stats">
                         <div>Correct: <span id="correct-count">{this.state.guessCount}</span></div>
                         <div>Wrong: <span id="wrong-count">{this.state.wrongCount}</span></div>
-                        <div>Skipped: <span id="skip-count">{this.state.skipCount}</span></div>
                     </div>
 
                     <div className="buttons">
