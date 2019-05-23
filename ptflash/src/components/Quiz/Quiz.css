@@ -1,3 +1,7 @@
+#atom-name {
+    font-size: 25px;
+    margin: 15px auto;
+}
 
 #atom-num {
     font-size: 45px;
@@ -8,6 +12,41 @@
 #atom-sym {
     font-size: 100px;
     margin: 10px auto;
+}
+
+.button {
+    border: 2px #444444 solid;
+    border-radius: 10px;
+    color: #444444;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.button-selected {
+    background-color: #EA477D;
+    border: 2px #EA477D solid;
+    border-radius: 10px;
+    outline: 0;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.button:hover {
+    background-color: #444444;
+    color: #FFFFFF;
+}
+
+.button:focus {
+    outline:0;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 25px auto;
+    width: 325px;
 }
 
 .card {
