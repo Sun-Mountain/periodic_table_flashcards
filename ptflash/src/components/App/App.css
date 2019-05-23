@@ -5,18 +5,8 @@ body {
 }
 
 #logo {
-    height: 68px;
+    height: 50px;
     width: auto;
-}
-
-.nav-main-link {
-  color: #ffffff;
-  padding: 0 5vw;
-  text-decoration: none;
-}
-
-.nav-main-link:hover {
-  background-color: #55DDE0;
 }
 
 main {
@@ -28,5 +18,15 @@ main {
   color: #ffffff;
   display: flex;
   flex-direction: row;
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
+}
+
+.nav-main-link {
+  color: #ffffff;
+  padding: 0 5vw;
+  text-decoration: none;
+}
+
+.nav-main-link:hover {
+  background-color: #55DDE0;
 }

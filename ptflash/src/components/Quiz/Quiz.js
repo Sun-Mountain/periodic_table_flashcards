@@ -17,7 +17,6 @@ class Quiz extends Component {
             guessName: 'Guess',
             guessCount: 0,
             wrongCount: 0,
-            arrayStart: 0,
             arrayEnd: 0,
             guessSymbol: false,
             guessElement: true
@@ -125,7 +124,11 @@ class Quiz extends Component {
             // console.log(answer)
             // console.log(noSpaceAnswer)
             
-            if (noSpaceAnswer !== element) {
+            if (noSpaceAnswer === '') {
+
+                console.log('nah')
+
+            } else if (noSpaceAnswer !== element) {
 
                 this.setState(prevState => {
 
@@ -139,7 +142,6 @@ class Quiz extends Component {
                     }
                 })
 
-                // console.log('nah')
             } else {
 
                 this.setState(prevState =>{
@@ -438,14 +440,6 @@ class Quiz extends Component {
                     <button className={selectedElementButton ? 'button-selected' : 'button'} onClick={this.guessElementInput}>Element Name</button>
                     <button className={selectedSymbolButton ? 'button-selected' : 'button'}onClick={this.guessSymbolInput}>Element Symbol</button>
                 </nav>
-
-                {/* <div className="element-limit">
-                    <form id="number-form">
-                        <input placeholder="start" />
-                        <input placeholder="end" />
-                        <input className="button" type="submit" value="Submit" />
-                    </form>
-                </div> */}
 
                 <div className="flashcard">
 
