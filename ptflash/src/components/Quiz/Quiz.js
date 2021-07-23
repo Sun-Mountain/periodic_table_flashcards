@@ -44,7 +44,7 @@ class Quiz extends Component {
     }
 
     getPeriodicTable() {
-        const Url = 'https://neelpatel05.pythonanywhere.com'
+        const Url = 'https://periodic-table-api.herokuapp.com/'
 
         const arrayIndex = 0
 

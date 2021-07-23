@@ -10,7 +10,7 @@ I lowkey love the periodic table and it's one of my favorite things to revisit t
 * Nicole Zonnenberg - _Initial Work_ - [Sun-Mountain](https://github.com/Sun-Mountain)
 
 # Acknowledgements
-* [Periodic Table API](https://github.com/neelpatel05/periodic-table-api) by [neelpatel05](https://github.com/neelpatel05)
+* [Periodic Table API](https://github.com/neelpatel05/periodic-table-api-go) by [neelpatel05](https://github.com/neelpatel05)
 * Periodic Table Logo by [Freekpik](https://www.freepik.com/)
 
 # Use the App
